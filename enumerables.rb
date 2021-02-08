@@ -38,4 +38,15 @@
     new_arr
   end
 
+def my_all?(*args)
+    if !args[0].nil?
+      my_each { |element| return false unless args[0] === element }
+    elsif block_given?
+      my_each { |element| return false unless yield(element) }
+    else
+      my_each { |element| return false unless element }
+    end
+    true
+  end
+
    
