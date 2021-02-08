@@ -49,4 +49,15 @@ def my_all?(*args)
     true
   end
 
+  def my_any?(*args)
+    if !args[0].nil?
+      my_each { |element| return true if args[0] === element }
+    elsif block_given?
+      my_each { |element| return true if yield(element) }
+    else
+      my_each { |element| return true if element }
+    end
+    false
+  end
+
    
