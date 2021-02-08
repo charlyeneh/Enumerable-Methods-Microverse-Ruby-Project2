@@ -30,7 +30,12 @@
     #hash
     #=>
 
-  def ca_select
-    return to_enum (:ca_select) unless block_given?
+  def my_select
+    return to_enum(:my_select) unless block_given?
+
+    new_arr = []
+    my_each { |element| new_arr << element if yield(element) }
+    new_arr
+  end
 
    
