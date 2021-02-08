@@ -60,4 +60,7 @@ def my_all?(*args)
     false
   end
 
+  def my_none?(args = nil, &block)
+    !my_any?(args, &block)
+  end
    
