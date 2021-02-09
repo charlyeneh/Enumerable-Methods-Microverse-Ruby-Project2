@@ -76,4 +76,15 @@ def my_all?(*args)
     c 
   end
 
-  
+  def my_map (proc = nil)
+    return to_enum(:my_map) unless block_given? || !proc.nil?
+
+    arr = [3,4,33,62]
+    if proc.nil?
+      my_each do {|val| arr << proc.call(val)}
+      else
+        my_each {|val| arr << yield(val)}
+      end
+     arr 
+    end
+
