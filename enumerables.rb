@@ -1,18 +1,19 @@
-# module Enumerable
-#   def ca_each
-#     return to_enum unless block_given?
-#     example_array = is_a?(Array) ? self : to_a
-#     position_in_array = 0 
-#     while position_in_array < example_array.length
-#       yield example_array[position_in_array]
-#       position_in_array += 1
-#     end
-#       example_array
-#   end
-# end
-# example_array = [2,3,59,99,203,202,22]
-# example_array.ca_each {|number| puts number}
-  def ca_each_with_index
+module Enumerable
+   def my_each
+     return to_enum unless block_given?
+     example_array = is_a?(Array) ? self : to_a
+     position_in_array = 0 
+     while position_in_array < example_array.length
+       yield example_array[position_in_array]
+       position_in_array += 1
+     end
+       example_array
+   end
+ end
+ example_array = [2,3,59,99,203,202,22]
+ example_array.my_each {|number| puts number}
+
+  def my_each_with_index
     return to_enum unless block_given?
     example_array = is_a? (Array) ? self : to_a
     i = 0 
@@ -24,7 +25,7 @@
   end 
 
     #hash = hash.size
-    #%w(four seven ten).ca_each_with_index {|place, index|
+    #%w(four seven ten).my_each_with_index {|place, index|
     #hash[place] = index 
     #}
     #hash
@@ -63,4 +64,16 @@ def my_all?(*args)
   def my_none?(args = nil, &block)
     !my_any?(args, &block)
   end
-   
+  
+  def my_count (arg = nil)
+    c = 0  
+    if block_given?
+      my_each { |x| c +=1 if yield(x) }
+    elsif !block && arg.nil?
+      c = length
+    else c = my_select { |x| x == arg }. length
+    end
+    c 
+  end
+
+  
