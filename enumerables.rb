@@ -88,3 +88,9 @@ def my_all?(*args)
      arr 
     end
 
+    def my_inject(total = nil, n = nil)
+      if total.is_a?(symbol)
+        n = total
+        total = nil
+      end 
+
