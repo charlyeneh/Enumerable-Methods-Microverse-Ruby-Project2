@@ -96,6 +96,4 @@ module Enumerable
   arr.my_inject(:*)
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedComplexity
-# rubocop:enable Style/CaseEquality
+
