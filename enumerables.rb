@@ -75,7 +75,6 @@ module Enumerable
         my_each {|val| arr << yield(val)}
       end
      arr 
-    end
   end
   def my_inject(*arg)
     arg[0].is_a?(Integer) ? initial = arg[0] : symbol = arg[0]
@@ -96,4 +95,3 @@ module Enumerable
   arr.my_inject(:*)
   end
 end
-
