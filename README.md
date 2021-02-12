@@ -1,27 +1,37 @@
 # Enumerable-Methods-Microverse-Ruby-Project2
-In this project, We implemented the Enumerable methods.
+In this project, we implemented our own version of Ruby’s enumerable methods, namely:
 
-## Built With
+-my_each
+-my_each_with_index
+-my_select
+-my_all?
+-my_any?
+-my_none?
+-my_count
+-my_map
+-my_inject
 
-- Ruby
-
-## Live Demo
-
-[Live Demo]
+Built With
+-Ruby
+-VS Code
+-Ubuntu
+-Rubocop linter
 
 ## Getting Started
 
--Clone the repository $ git clone https://github.com/charlyeneh/Enumerable-Methods-Microverse-Ruby-Project2
--Go to the project directory $ cd Enumerable-Methods-Microverse-Ruby-Project2 
--Run the command $ ruby enumerable_methods.rb
+To get your own copy of our project simply clone the repository to your local machine.
 
+Step 1: Type the following command into a git shell
 
-To get a local copy up and running follow these simple example steps.
+git clone https://github.com/charlyeneh/Enumerable-Methods-Microverse-Ruby-Project2
 
+Step 2: Direct a terminal into the cloned repository directory
 
-### Setup
+cd Enumerable-Methods-Microverse-Ruby-Project2
 
-### Install
+Step 3: Run the program from command line, then open it in a text editor
+
+Step 4: Run ruby Enumerable.rb from your terminal To test the code.
 
 ## Authors
 
