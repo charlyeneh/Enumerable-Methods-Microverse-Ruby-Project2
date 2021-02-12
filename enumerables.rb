@@ -17,12 +17,11 @@ module Enumerable
     return to_enum unless block_given?
     example_array = is_a? (Array) ? self : to_a
     i = 0 
-    while i < .length
+    while i < length
       yield(self[i], i)
       i += 1
     end 
     self 
-    end 
   end
   def my_select
     return to_enum(:my_select) unless block_given?
