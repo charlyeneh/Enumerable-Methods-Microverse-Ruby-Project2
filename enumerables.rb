@@ -63,7 +63,6 @@ module Enumerable
       else c = my_select { |x| x == arg }. length
       end
       c
-    end
   end
   def my_map(proc = nil)
     return to_enum unless block_given?
@@ -93,5 +92,5 @@ module Enumerable
   end
   def multiply_els(arr)
   arr.my_inject(:*)
-  end
 end
+
