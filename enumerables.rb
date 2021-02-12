@@ -9,9 +9,9 @@ module Enumerable
      end
        example_array
    end
- end
- example_array = [2,3,59,99,203,202,22]
- example_array.my_each {|number| puts number}
+
+  example_array = [2,3,59,99,203,202,22]
+  example_array.my_each {|number| puts number}
 
   def my_each_with_index
     return to_enum unless block_given?
