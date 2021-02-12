@@ -65,16 +65,16 @@ module Enumerable
       c
     end
   end
-  def my_map (proc = nil)
-    return to_enum(:my_map) unless block_given? || !proc.nil?
+  def my_map(proc = nil)
+    return to_enum unless block_given?
 
-    arr = [3,4,33,62]
-    if proc.nil?
-      my_each do {|val| arr << proc.call(val)}
-      else
-        my_each {|val| arr << yield(val)}
-      end
-     arr 
+    array = []
+    if proc
+      my_each { |value| array.push(proc.call(value)) }
+    else
+      my_each { |value| array.push(yield(value)) }
+    end
+    array
   end
   def my_inject(*arg)
     arg[0].is_a?(Integer) ? initial = arg[0] : symbol = arg[0]
