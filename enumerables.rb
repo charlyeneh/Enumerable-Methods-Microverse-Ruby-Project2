@@ -80,7 +80,7 @@ module Enumerable
     end
     array
   end
-  
+
   def my_inject(*arg)
     arg[0].is_a?(Integer) ? initial = arg[0] : symbol = arg[0]
     if initial && !arg[1].is_a?(Integer)
@@ -99,4 +99,3 @@ module Enumerable
   def multiply_els(arr)
   arr.my_inject(:*)
   end
-end
