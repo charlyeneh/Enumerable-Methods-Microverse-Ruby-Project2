@@ -96,6 +96,7 @@ module Enumerable
     end
     result
   end
+  
   def multiply_els(arr)
-  arr.my_inject(:*)
+    arr.my_inject(:*)
   end
