@@ -24,6 +24,7 @@ module Enumerable
     end 
     self 
   end
+
   def my_select
     return to_enum(:my_select) unless block_given?
 
@@ -31,6 +32,7 @@ module Enumerable
     my_each { |element| new_arr << element if yield(element) }
     new_arr
   end
+
   def my_all?(*args)
     if !args[0].nil?
       my_each { |element| return false unless args[0] === element }
@@ -41,6 +43,7 @@ module Enumerable
     end
     true
   end
+
   def my_any?(*args)
     if !args[0].nil?
       my_each { |element| return true if args[0] === element }
@@ -54,6 +57,7 @@ module Enumerable
   def my_none?(args = nil, &block)
     !my_any?(args, &block)
   end
+
   def my_count (arg = nil)
     c = 0  
     if block_given?
@@ -64,6 +68,7 @@ module Enumerable
       end
       c
   end
+
   def my_map(proc = nil)
     return to_enum unless block_given?
 
@@ -75,6 +80,7 @@ module Enumerable
     end
     array
   end
+  
   def my_inject(*arg)
     arg[0].is_a?(Integer) ? initial = arg[0] : symbol = arg[0]
     if initial && !arg[1].is_a?(Integer)
@@ -92,5 +98,5 @@ module Enumerable
   end
   def multiply_els(arr)
   arr.my_inject(:*)
+  end
 end
-
