@@ -1,72 +1,83 @@
 module Enumerable
   def my_each
-    return to_enum unless block_given?
-
-    example_array = is_a?(Array) ? self : to_a
-    position_in_array = 0
-      while position_in_array < example_array.length
-        yield example_array[position_in_array]
-      position_in_array += 1
-      end
-       example_array
-   end
+    block_given? ? size.times { |i| yield(to_a[i]) } : (return to_enum)
+    self
   end
-  example_array = [2,3,59,99,203,202,22]
-  example_array.my_each {|number| puts number}
 
   def my_each_with_index
-    return to_enum unless block_given?
-    example_array = is_a? (Array) ? self : to_a
-    i = 0 
-    while i < length
-      yield(self[i], i)
-      i += 1
-    end 
-    self 
+    block_given? ? size.times { |i| yield(to_a[i], i) } : (return to_enum)
+    self
   end
 
   def my_select
-    return to_enum(:my_select) unless block_given?
+    return to_enum unless block_given?
 
-    new_arr = []
-    my_each { |element| new_arr << element if yield(element) }
-    new_arr
+    array = []
+    my_each { |value| array << value if yield value }
+    array
   end
 
-  def my_all?(*args)
-    if !args[0].nil?
-      my_each { |element| return false unless args[0] === element }
-    elsif block_given?
-      my_each { |element| return false unless yield(element) }
+  def my_all?(arg = nil)
+    if block_given?
+      my_each { |value| return false unless yield value }
+    elsif arg.is_a? Regexp
+      my_each { |value| return false unless value.to_s =~ arg }
+    elsif arg.is_a? Class
+      my_each { |value| return false unless value.is_a? arg }
+    elsif arg
+      my_each { |value| return false unless value == arg }
+    elsif arg.nil?
+      my_each { |value| return false unless value }
     else
-      my_each { |element| return false unless element }
+      my_each { |value| return false unless value }
     end
     true
   end
 
-  def my_any?(*args)
-    if !args[0].nil?
-      my_each { |element| return true if args[0] === element }
-    elsif block_given?
-      my_each { |element| return true if yield(element) }
+  def my_any?(arg = nil)
+    if block_given?
+      my_each { |value| return true if yield value }
+    elsif arg.is_a? Regexp
+      my_each { |value| return true if value.to_s =~ arg }
+    elsif arg.is_a? Class
+      my_each { |value| return true if value.is_a? arg }
+    elsif arg
+      my_each { |value| return true if value == arg }
+    elsif arg.nil?
+      my_each { |value| return true if value }
     else
-      my_each { |element| return true if element }
+      my_each { |value| return true if value }
     end
     false
   end
-  def my_none?(args = nil, &block)
-    !my_any?(args, &block)
+
+  def my_none?(arg = nil)
+    if block_given?
+      my_each { |value| return false if yield value }
+    elsif arg.is_a? Regexp
+      my_each { |value| return false if value.to_s =~ arg }
+    elsif arg.is_a? Class
+      my_each { |value| return false if value.is_a? arg }
+    elsif arg
+      my_each { |value| return false if value == arg }
+    elsif arg.nil?
+      my_each { |value| return false if value }
+    else
+      my_each { |value| return false if value }
+    end
+    true
   end
 
-  def my_count (arg = nil)
-    c = 0  
+  def my_count(arg = nil)
+    count = 0
     if block_given?
-      my_each { |x| c +=1 if yield(x) }
-      elsif !block && arg.nil?
-        c = length
-      else c = my_select { |x| x == arg }. length
-      end
-      c
+      my_each { |value| count += 1 if yield value }
+    elsif arg
+      my_each { |value| count += 1 if value == arg }
+    else
+      my_each { count += 1 }
+    end
+    count
   end
 
   def my_map(proc = nil)
@@ -96,7 +107,8 @@ module Enumerable
     end
     result
   end
-  
-  def multiply_els(arr)
-    arr.my_inject(:*)
-  end
+end
+
+def multiply_els(arr)
+  arr.my_inject { |a, b| a * b }
+end
