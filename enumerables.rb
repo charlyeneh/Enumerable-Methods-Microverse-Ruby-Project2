@@ -126,14 +126,14 @@ p example_array.my_select { |number| number > 100 } # [202, 203]
 p example_array.all? { |number| number > 1 } # true
 p example_array.my_all? { |number| number > 1 } # true
 
-p example_array.any? { |number| number % 3 == 0 } # true
-p example_array.my_any? { |number| number % 3 == 0 } # true
+p example_array.any? { |number| (number % 3).zero? } # true
+p example_array.my_any? { |number| (number % 3).zero? } # true
 
 p example_array.none? { |number| number > 203 } # true
 p example_array.my_none? { |number| number > 203 } # true
 
-p example_array.count { |number| number % 3 == 0 } # 2
-p example_array.my_count { |number| number % 3 == 0 } # 2
+p example_array.count { |number| (number % 3).zero? } # 2
+p example_array.my_count { |number| (number % 3).zero? } # 2
 
 p example_array.map { |number| number * 2 } # [4, 6, 118...]
 p example_array.my_map { |number| number * 2 } # [4, 6, 118...]
