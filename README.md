@@ -1,21 +1,22 @@
 # Enumerable-Methods-Microverse-Ruby-Project2
 In this project, we implemented our own version of Ruby’s enumerable methods, namely:
 
-** my_each
-** my_each_with_index
-** my_select
-** my_all?
-** my_any?
-** my_none?
-** my_count
-** my_map
-** my_inject
+- my_each
+- my_each_with_index
+- my_select
+- my_all?
+- my_any?
+- my_none?
+- my_count
+- my_map
+- my_inject
 
-Built With
-** Ruby
-** VS Code
-** Ubuntu
-** Rubocop linter
+Built With:
+
+- Ruby
+- VS Code
+- Ubuntu
+- Rubocop linter
 
 ## Getting Started
 
@@ -41,7 +42,7 @@ Step 4: Run ruby Enumerable.rb from your terminal To test the code.
 
 👤 **Eneh Charles Chukwunweike**
 
-- GitHub: [@githubhandle](https://github.com/charlyeneh)
+- GitHub: [@charlyeneh](https://github.com/charlyeneh)
 - Twitter: [@twitterhandle](https://twitter.com/ProgrammerBaby?s=09)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/charles-chukwunweike-eneh-5345a2147)
 
