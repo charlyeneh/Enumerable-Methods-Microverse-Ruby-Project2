@@ -106,31 +106,39 @@ module Enumerable
     end
     result
   end
+end
 
-  def multiply_els(arr)
-    arr.my_inject(:*)
-  end
+def multiply_els(arr)
+  arr.my_inject(:*)
 end
 
 example_array = [2, 3, 59, 99, 203, 202, 22]
-example_array.my_each { |number| number }
-byebug
-example_array.my_each_with_index {|number, index| p index}
-example_array.my_select { |number| number > 100 } # [202, 203]
-example_array.my_all? { |number| number > 1 } # true
-example_array.my_any? { |number|  number % 3 == 0 } # true
-example_array.my_none? { |number| number > 203 } # true
-example_array.my_count { |number|  number % 3 == 0 } # 2
-example_array.my_map { |number| number * 2 } # [4, 6, 118...]
-example_array.my_inject(:*) # 2*3*59
 
-example_array = [2, 3, 59, 99, 203, 202, 22]
-example_array.each { |number| number }
-example_array.each_with_index {|number, index| p index}
-example_array.select { |number| number > 100 } # [202, 203]
-example_array.all? { |number| number > 1 } # true
-example_array.any? { |number|  number % 3 == 0 } # true
-example_array.none? { |number| number > 203 } # true
-example_array.count { |number|  number % 3 == 0 } # 2
-example_array.map { |number| number * 2 } # [4, 6, 118...]
-example_array.inject(:*) # 31616118072
+p example_array.each { |number| number }
+p example_array.my_each { |number| number }
+
+p example_array.each_with_index {|number, index| p index}
+p example_array.my_each_with_index {|number, index| p index}
+
+p example_array.select { |number| number > 100 } # [202, 203]
+p example_array.my_select { |number| number > 100 } # [202, 203]
+
+p example_array.all? { |number| number > 1 } # true
+p example_array.my_all? { |number| number > 1 } # true
+
+p example_array.any? { |number|  number % 3 == 0 } # true
+p example_array.my_any? { |number|  number % 3 == 0 } # true
+
+p example_array.none? { |number| number > 203 } # true
+p example_array.my_none? { |number| number > 203 } # true
+
+p example_array.count { |number|  number % 3 == 0 } # 2
+p example_array.my_count { |number|  number % 3 == 0 } # 2
+
+p example_array.map { |number| number * 2 } # [4, 6, 118...]
+p example_array.my_map { |number| number * 2 } # [4, 6, 118...]
+
+p example_array.inject(:*) # 31616118072
+p example_array.my_inject(:*) # 31616118072
+
+p multiply_els(example_array) # 31616118072
