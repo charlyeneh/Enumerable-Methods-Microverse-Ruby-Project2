@@ -1,3 +1,7 @@
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Lint/AmbiguousBlockAssociation
+
 module Enumerable
   def my_each
     block_given? ? size.times { |i| yield(to_a[i]) } : (return to_enum)
@@ -114,8 +118,8 @@ end
 
 example_array = [2, 3, 59, 99, 203, 202, 22]
 
-p example_array.each { |number| number }
-p example_array.my_each { |number| number }
+p example_array.each { |number| p "Element number #{number}" }
+p example_array.my_each { |number| p "Element number #{number}" }
 
 p example_array.each_with_index { |_number, index| p index }
 p example_array.my_each_with_index { |_number, index| p index }
@@ -142,3 +146,7 @@ p example_array.inject(:*) # 31616118072
 p example_array.my_inject(:*) # 31616118072
 
 p multiply_els(example_array) # 31616118072
+
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Lint/AmbiguousBlockAssociation
