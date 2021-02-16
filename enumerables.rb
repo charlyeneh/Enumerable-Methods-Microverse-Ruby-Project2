@@ -38,18 +38,19 @@ module Enumerable
     true
   end
 
-  def my_any?(args = nil)
+  def my_any?(arg = nil)
     if block_given?
-      my_each { |element| return true if yield(element) }
-      false
-    elsif args.nil?
-      my_each { |element| return true if n.nil? || element == true }
-    elsif !args.nil? && (args.is_a? Class)
-      my_each { |element| return true if element.instance_of?(args) }
-    elsif !args.nil? && args.instance_of?(Regexp)
-      my_each { |element| return true if args.match(element) }
+      my_each { |value| return true if yield value }
+    elsif arg.is_a? Regexp
+      my_each { |value| return true if value.to_s =~ arg }
+    elsif arg.is_a? Class
+      my_each { |value| return true if value.is_a? arg }
+    elsif arg
+      my_each { |value| return true if value == arg }
+    elsif arg.nil?
+      my_each { |value| return true if value }
     else
-      my_each { |element| return true if element == args }
+      my_each { |value| return true if value }
     end
     false
   end
