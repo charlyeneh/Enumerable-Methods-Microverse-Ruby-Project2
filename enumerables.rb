@@ -42,12 +42,12 @@ module Enumerable
     if block_given?
       my_each { |element| return true if yield(element) }
       false
-    elsif arg.nil?
-      my_each { |element| return true if n.nil? || element == true }
-    elsif !arg.nil? && (args.is_a? Class)
+    elsif args.nil?
+      my_each { |element| return true if element || element == true }
+    elsif !args.nil? && (args.is_a? Class)
       my_each { |element| return true if element.instance_of?(args) }
-    elsif !arg.nil? && args.instance_of?(Regexp)
-      my_each { |element| return true if arg.match(element) }
+    elsif !args.nil? && args.instance_of?(Regexp)
+      my_each { |element| return true if args.match(element) }
     else
       my_each { |element| return true if element == args }
     end
@@ -146,6 +146,12 @@ p example_array.inject(:*) # 31616118072
 p example_array.my_inject(:*) # 31616118072
 
 p multiply_els(example_array) # 31616118072
+
+p 'Testing my any edge cases after TSE review'
+p [1, false, nil].my_any? # true
+p [nil, false, nil].my_any? # false
+p [1, false, nil].any? # true
+p [nil, false, nil].any? # false
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
