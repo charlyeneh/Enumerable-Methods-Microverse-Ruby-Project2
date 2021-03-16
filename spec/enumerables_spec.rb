@@ -1,4 +1,5 @@
 require_relative '../enumerables'
+require_relative '../spec_helper'
 
 describe my_each do
   it 'returns the iteration of the array' do
