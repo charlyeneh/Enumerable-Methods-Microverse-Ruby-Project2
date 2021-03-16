@@ -1,6 +1,6 @@
 describe my_each do
- describe "#times" do
-it "resturns the interation of the array" do
+it "resturns the interation of the array if not blocj is given" do
+  expect(array.my_each).to 
     enum = times.new
 end
 
