@@ -1,7 +1,12 @@
-require_relative '../enumerables.rb'
+require_relative '../enumerables'
+require_relative './spec_helper'
 
-RSpec.describe Enumerable do
-  let(:example_array) { [2, 3, 59, 99, 203, 202, 22] }
+describe my_each do
+  let example_array = [2, 3, 59, 99, 203, 202, 22]
+  it 'returns the iteration of the array' do
+    expect(example_array.my_each { |number| p "Element number #{number}" }).to eql("Element number #{number}")
+  end
+end
 
   describe '#my_each' do
     context 'when no block is given it returns Enumerable' do
