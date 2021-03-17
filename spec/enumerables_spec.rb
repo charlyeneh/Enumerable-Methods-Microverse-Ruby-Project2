@@ -1,7 +1,8 @@
 require_relative '../enumerables'
-require_relative '../spec_helper'
+require_relative './spec_helper'
 
 describe my_each do
+  let example_array = [2, 3, 59, 99, 203, 202, 22]
   it 'returns the iteration of the array' do
     expect(example_array.my_each { |number| p "Element number #{number}" }).to eql("Element number #{number}")
   end
