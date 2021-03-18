@@ -1,5 +1,5 @@
 # Enumerable-Methods-Microverse-Ruby-Project2
-In this project, we implemented our own version of Ruby’s enumerable methods, namely:
+In this project, we implemented the Rspec of Ruby’s enumerable methods, namely:
 
 - my_each
 - my_each_with_index
@@ -24,7 +24,7 @@ To get your own copy of our project simply clone the repository to your local ma
 
 Step 1: Type the following command into a git shell
 
-git clone https://github.com/charlyeneh/Enumerable-Methods-Microverse-Ruby-Project2
+git clone https://github.com/promise-J/Enumerable-Methods-Microverse-Ruby-Project2/tree/rspec-dev
 
 Step 2: Direct a terminal into the cloned repository directory
 
@@ -32,9 +32,15 @@ cd Enumerable-Methods-Microverse-Ruby-Project2
 
 Step 3: Run the program from command line, then open it in a text editor
 
-Step 4: Run ruby Enumerable.rb from your terminal To test the code.
+Step 4: Run Rspec from your terminal To test the code.
 
 ## Authors
+
+👤  **Promise Johnson**
+- GitHub: [promise-J](https://github.com/promise-J)
+- Twitter: [@twitterhandle](https://twitter.com/Promise94353263)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/promise-chiemela-788887142)
+bust_in_silhouette Johnson Promise
 
 👤 **Angela Cuahutle**
 - GitHub: [@angelacuahutle](https://github.com/angelacuahutle)
@@ -58,7 +64,7 @@ Give a ⭐️ if you like this project!
 
 MIT License
 
-Copyright (c) 2020 Angela Cuahutle and Eneh Charles Chukwunweike 
+Copyright (c) 2020 Angela Cuahutle, Promise Johnson and Eneh Charles Chukwunweike 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
