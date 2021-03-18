@@ -117,6 +117,11 @@ def multiply_els(arr)
   arr.my_inject(:*)
 end
 
+# p [1,2,3,4,5,8,8,6].my_count { |value| value %2==0 }
+# p [1,2,3,4,5,8,8,6].my_count(7)
+p multiply_els([1,2,3])
+
+
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Lint/AmbiguousBlockAssociation
