@@ -15,14 +15,15 @@ end
       end
     end
   end
-end
 
-# describe my_each_with_index do
-#   it 'returns the enumerator, if no block is given, else it hashes the items.' do
-#     expect([1, 2, 3].my_each_with_index { |_number, index| p index }).to eql(index)
-#   end
-# end
-
+ describe '#my_each_with_index' do
+  context 'returns the enumerator, if no block is given, else it hashes the items.' do
+    it '#my_each_with_index' do
+     expect([1, 2, 3].my_each_with_index { |_number, index| p index }).to eql(index)
+    end
+   end
+ end 
+ 
 # describe my_select do
 #   it 'filters an array of objects' do
 #     expect([1, 2, 3].my_select { |n| n.&:even? }).to eql(2)
