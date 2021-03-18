@@ -14,25 +14,25 @@ RSpec.describe '.my_each_with_index' do
     expect([1, 2, 3].my_each_with_index { |number, index| hash[number] = index }).to eql([1, 2, 3])
   end
 
- describe '#my_each_with_index' do
-  context 'returns the enumerator, if no block is given, else it hashes the items.' do
-    it '#my_each_with_index' do
-     expect([1, 2, 3].my_each_with_index { |_number, index| p index }).to eql(index)
+  describe '#my_each_with_index' do
+    context 'returns the enumerator, if no block is given, else it hashes the items.' do
+      it '#my_each_with_index' do
+        expect([1, 2, 3].my_each_with_index { |_number, index| p index }).to eql(index)
+      end
     end
-   end
- end 
- 
-# describe my_select do
-#   it 'filters an array of objects' do
-#     expect([1, 2, 3].my_select { |n| n.&:even? }).to eql(2)
-#   end
-# end
+  end
 
-# describe my_all? do
-#   it 'returns true if objects satisfy the given condition, else it returns false' do
-#     expect([1, 2, 3].my_all? { |n| n < 4 }).to eql(true)
-#   end
-# end
+  # describe my_select do
+  #   it 'filters an array of objects' do
+  #     expect([1, 2, 3].my_select { |n| n.&:even? }).to eql(2)
+  #   end
+  # end
+
+  # describe my_all? do
+  #   it 'returns true if objects satisfy the given condition, else it returns false' do
+  #     expect([1, 2, 3].my_all? { |n| n < 4 }).to eql(true)
+  #   end
+  # end
 end
 
 RSpec.describe 'my_select' do
