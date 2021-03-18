@@ -38,6 +38,38 @@ describe "#my_any?" do
     end
 end
 
-
-
-
+describe "#my_none?" do
+    it "it returns true if any array members don't meet the specifications." do
+        expect(example_array.my_none? { |value| value < 0}).to be true
+    end
+    it "it returns true as long as array is empty even without block." do
+        expect([].my_none?).to be true
+    end
+end
+describe "#my_count" do
+    it "it returns the total number of the array when no arg or block is passed." do
+        expect(example_array.my_count).to be 7
+    end
+    it "it returns the number of the element present in the array." do
+        expect(example_array.my_count(22)).to be 1
+    end
+    it "it returns 0 if no member of the arg is found." do
+        expect(example_array.my_count(444)).to be 0
+    end
+    it "it returns the elements that satisfy the spec." do
+        expect(example_array.my_count { |value| value%2 == 0}).to be 3
+    end
+end
+describe "#my_map" do
+    it "it returns the modified array from the spec." do
+        expect(example_array.my_map { |value| value.to_s}).to eql(['2', '3', '59', '99', '203', '202', '22'])
+    end
+end
+describe "#my_inject" do
+    it "it returns the sum of all the numbers in the array." do
+        expect(example_array.my_inject(:+)).to eql(590)
+    end
+    it "it returns the product of the numbers in the array." do
+        expect(example_array.my_inject(:*)).to eql(31616118072)
+    end
+end
