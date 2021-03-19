@@ -85,7 +85,7 @@ describe '#my_inject' do
   end
 end
 describe '#multiply_els' do
-  it "returns the product of the numbers in the array." do
-    expect([1,2,3].multiply_els([1,2,3])).to eql(6)
+  it 'returns the product of the numbers in the array.' do
+    expect([1, 2, 3].multiply_els([1, 2, 3])).to eql(6)
   end
 end
