@@ -56,3 +56,10 @@ RSpec.describe 'my_inject' do
     expect([3, 6, 10].my_inject { |sum, number| sum + number }).to eql(19)
   end
 end
+
+RSpec.describe 'multiply_els' do
+  arr = [3, 6, 10]
+  it 'multiplies elements of arrays' do
+    expect(multiply_els(arr)).to eql(180)
+  end
+end
