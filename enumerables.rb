@@ -1,6 +1,5 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
-# rubocop:disable Lint/AmbiguousBlockAssociation
 
 module Enumerable
   def my_each
@@ -112,48 +111,12 @@ module Enumerable
     result
   end
 end
-
+public
 def multiply_els(arr)
   arr.my_inject(:*)
 end
 
-example_array = [2, 3, 59, 99, 203, 202, 22]
-
-p example_array.each { |number| p "Element number #{number}" }
-p example_array.my_each { |number| p "Element number #{number}" }
-
-p example_array.each_with_index { |_number, index| p index }
-p example_array.my_each_with_index { |_number, index| p index }
-
-p example_array.select { |number| number > 100 } # [202, 203]
-p example_array.my_select { |number| number > 100 } # [202, 203]
-
-p example_array.all? { |number| number > 1 } # true
-p example_array.my_all? { |number| number > 1 } # true
-
-p example_array.any? { |number| (number % 3).zero? } # true
-p example_array.my_any? { |number| (number % 3).zero? } # true
-
-p example_array.none? { |number| number > 203 } # true
-p example_array.my_none? { |number| number > 203 } # true
-
-p example_array.count { |number| (number % 3).zero? } # 2
-p example_array.my_count { |number| (number % 3).zero? } # 2
-
-p example_array.map { |number| number * 2 } # [4, 6, 118...]
-p example_array.my_map { |number| number * 2 } # [4, 6, 118...]
-
-p example_array.inject(:*) # 31616118072
-p example_array.my_inject(:*) # 31616118072
-
-p multiply_els(example_array) # 31616118072
-
-p 'Testing my any edge cases after TSE review'
-p [1, false, nil].my_any? # true
-p [nil, false, nil].my_any? # false
-p [1, false, nil].any? # true
-p [nil, false, nil].any? # false
+p multiply_els([1, 2, 3])
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
-# rubocop:enable Lint/AmbiguousBlockAssociation
