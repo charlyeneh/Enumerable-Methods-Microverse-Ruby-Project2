@@ -1,4 +1,4 @@
-# Enumerable-Methods-Microverse-Ruby-Project2
+# Enumerable-Methods-Microverse-Ruby-Project2 Project also tested with RSpec
 In this project, we implemented our own version of Ruby’s enumerable methods, namely:
 
 - my_each
@@ -17,6 +17,7 @@ Built With:
 - VS Code
 - Ubuntu
 - Rubocop linter
+- RSpec
 
 ## Getting Started
 
@@ -34,17 +35,26 @@ Step 3: Run the program from command line, then open it in a text editor
 
 Step 4: Run ruby Enumerable.rb from your terminal To test the code.
 
+Step 4: Use the test cases in the branch rspec runing the comand rspec.
+
 ## Authors
 
-👤 **Angela Cuahutle**
-- GitHub: [@angelacuahutle](https://github.com/angelacuahutle)
-- Twitter: [@AngelaCunaDev](https://twitter.com/AngelaCunaDev) 
+👤 **Shay Craig**
+
+- GitHub: [@craigs40](https://github.com/craigs40)
+
 
 👤 **Eneh Charles Chukwunweike**
 
 - GitHub: [@charlyeneh](https://github.com/charlyeneh)
 - Twitter: [@twitterhandle](https://twitter.com/ProgrammerBaby?s=09)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/charles-chukwunweike-eneh-5345a2147)
+
+👤 **Angela Cuahutle**
+
+- GitHub: [@angelacuahutle](https://github.com/angelacuahutle)
+- Twitter: [@AngelaCunaDev](https://twitter.com/AngelaCunaDev) 
+
 
 ## 🤝 Contributing
 
