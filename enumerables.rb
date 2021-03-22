@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 module Enumerable
   def my_each
     block_given? ? size.times { |i| yield(to_a[i]) } : (return to_enum)
@@ -88,3 +89,4 @@ end
 def multiply_els(arr)
   arr.my_inject(:*)
 end
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
