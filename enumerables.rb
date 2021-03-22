@@ -1,6 +1,4 @@
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedComplexity
-
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 module Enumerable
   def my_each
     block_given? ? size.times { |i| yield(to_a[i]) } : (return to_enum)
@@ -20,51 +18,27 @@ module Enumerable
     array
   end
 
-  def my_all?(arg = nil)
+  def my_all?(_arg = nil)
     if block_given?
       my_each { |value| return false unless yield value }
-    elsif arg.is_a? Regexp
-      my_each { |value| return false unless value.to_s =~ arg }
-    elsif arg.is_a? Class
-      my_each { |value| return false unless value.is_a? arg }
-    elsif arg
-      my_each { |value| return false unless value == arg }
-    elsif arg.nil?
-      my_each { |value| return false unless value }
     else
       my_each { |value| return false unless value }
     end
     true
   end
 
-  def my_any?(arg = nil)
+  def my_any?(_arg = nil)
     if block_given?
       my_each { |value| return true if yield value }
-    elsif arg.is_a? Regexp
-      my_each { |value| return true if value.to_s =~ arg }
-    elsif arg.is_a? Class
-      my_each { |value| return true if value.is_a? arg }
-    elsif arg
-      my_each { |value| return true if value == arg }
-    elsif arg.nil?
-      my_each { |value| return true if value }
     else
       my_each { |value| return true if value }
     end
     false
   end
 
-  def my_none?(arg = nil)
+  def my_none?(_arg = nil)
     if block_given?
       my_each { |value| return false if yield value }
-    elsif arg.is_a? Regexp
-      my_each { |value| return false if value.to_s =~ arg }
-    elsif arg.is_a? Class
-      my_each { |value| return false if value.is_a? arg }
-    elsif arg
-      my_each { |value| return false if value == arg }
-    elsif arg.nil?
-      my_each { |value| return false if value }
     else
       my_each { |value| return false if value }
     end
@@ -115,43 +89,4 @@ end
 def multiply_els(arr)
   arr.my_inject(:*)
 end
-
-example_array = [2, 3, 59, 99, 203, 202, 22]
-
-p(example_array.each { |number| p "Element number #{number}" })
-p(example_array.my_each { |number| p "Element number #{number}" })
-
-p(example_array.each_with_index { |_number, index| p index })
-p(example_array.my_each_with_index { |_number, index| p index })
-
-p(example_array.select { |number| number > 100 }) # [202, 203]
-p(example_array.my_select { |number| number > 100 }) # [202, 203]
-
-p(example_array.all? { |number| number > 1 }) # true
-p(example_array.my_all? { |number| number > 1 }) # true
-
-p(example_array.any? { |number| (number % 3).zero? }) # true
-p(example_array.my_any? { |number| (number % 3).zero? }) # true
-
-p(example_array.none? { |number| number > 203 }) # true
-p(example_array.my_none? { |number| number > 203 }) # true
-
-p(example_array.count { |number| (number % 3).zero? }) # 2
-p(example_array.my_count { |number| (number % 3).zero? }) # 2
-
-p(example_array.map { |number| number * 2 }) # [4, 6, 118...]
-p(example_array.my_map { |number| number * 2 }) # [4, 6, 118...]
-
-p example_array.inject(:*) # 31616118072
-p example_array.my_inject(:*) # 31616118072
-
-p multiply_els(example_array) # 31616118072
-
-p 'Testing my any edge cases after TSE review'
-p [1, false, nil].my_any? # true
-p [nil, false, nil].my_any? # false
-p [1, false, nil].any? # true
-p [nil, false, nil].any? # false
-
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
