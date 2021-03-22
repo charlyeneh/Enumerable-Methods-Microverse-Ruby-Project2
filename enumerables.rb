@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 module Enumerable
   def my_each
     block_given? ? size.times { |i| yield(to_a[i]) } : (return to_enum)
@@ -69,24 +68,12 @@ module Enumerable
     array
   end
 
-  def my_inject(*arg)
-    arg[0].is_a?(Integer) ? initial = arg[0] : symbol = arg[0]
-    if initial && !arg[1].is_a?(Integer)
-      symbol = arg[1]
-    elsif arg.nil?
-      initial = self[0]
-    end
-    result = initial
-    if symbol
-      my_each { |value| result = result ? result.send(symbol, value) : value }
-    else
-      my_each { |value| result = result ? yield(result, value) : value }
-    end
-    result
+  def my_inject(memo = nil)
+    each { |x| memo = memo.nil? ? x : yield(memo, x) }
+    memo
   end
 end
 
 def multiply_els(arr)
   arr.my_inject(:*)
 end
-# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
