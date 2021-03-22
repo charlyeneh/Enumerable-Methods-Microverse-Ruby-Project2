@@ -74,6 +74,6 @@ module Enumerable
   end
 end
 
-def multiply_els(arr)
-  arr.my_inject(:*)
+def multiply_els(array)
+  array.my_inject { |acc, number| acc * number }
 end
